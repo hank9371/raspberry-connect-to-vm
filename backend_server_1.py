@@ -102,7 +102,7 @@ def generate_frames():
 # =================================================================
 @app.route('/')
 def index():
-    vm_tailscale_ip = "100.77.77.70"
+    vm_tailscale_ip = "change to your ip"
     return f"""
     <html>
     <head>
