@@ -5,11 +5,11 @@
 
 本系統由三個主要組件組成：
 
-###1. **`sender.py`**（執行於樹莓派）：
+### 1. **`sender.py`**（執行於樹莓派）：
    - 透過 USB 攝影機擷取即時影像
    - 將影像壓縮為 JPEG 後透過 TCP 傳送至虛擬機（後端）
 
-###2. **`backend_server.py`**（執行於虛擬機）：
+### 2. **`backend_server.py`**（執行於虛擬機）：
    - 接收來自樹莓派的影像並進行儲存與分析
    - 呼叫 YOLOv8 + MediaPipe 模型進行跌倒判斷
    - 提供即時影像與跌倒狀態的網頁顯示（Flask）
@@ -29,7 +29,7 @@
 ### 設定覆蓋網路 (Tailscale)
 - Tailscale 提供了一種簡單且安全的方式在多個裝置之間建立覆蓋網路，讓跨網段通訊更為便捷。
 
-###3. **`fall_detection.py`**：
+### 3. **`fall_detection.py`**：
    - 使用 YOLO 模型偵測人
    - 使用 MediaPipe Pose 擷取關鍵點
    - 評估人體姿勢計算 `fall_score`
