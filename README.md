@@ -30,6 +30,30 @@
 └── yolov8n.pt              # 預訓練 YOLOv8 模型檔（需自行放置）
 ```
 
+## ⚠️ 跌倒判斷邏輯
+
+- **評分項目：**
+  1. 頭部與腳踝的高度差
+  2. 軀幹傾斜角度
+  3. 腿部垂直角度
+
+- **綜合評分 (`fall_score`)**：
+  ```text
+  fall_score = 0.4 * 頭部 + 0.4 * 軀幹 + 0.2 * 腿部
+  ```
+
+- **跌倒閾值**：
+  - 若 `fall_score > 0.5`，即視為發生跌倒
+
+## 📦 資源準備
+
+- 確保下載並放置 `yolov8n.pt` 模型到指定位置：
+  ```
+  /home/tku-im-sd/backend_project/yolov8n.pt
+  ```
+- 若需替換模型路徑，請在 `fall_detection.py` 修改 `YOLO_MODEL_PATH`
+
+
 ## 🔧 安裝套件
 
 ### 後端（Ubuntu 虛擬機）
@@ -75,28 +99,6 @@ python3 backend_server.py
   - `Fall Score` 與偵測邊框
   - 即時更新的跌倒狀態文字提示
 
-## ⚠️ 跌倒判斷邏輯
-
-- **評分項目：**
-  1. 頭部與腳踝的高度差
-  2. 軀幹傾斜角度
-  3. 腿部垂直角度
-
-- **綜合評分 (`fall_score`)**：
-  ```text
-  fall_score = 0.4 * 頭部 + 0.4 * 軀幹 + 0.2 * 腿部
-  ```
-
-- **跌倒閾值**：
-  - 若 `fall_score > 0.5`，即視為發生跌倒
-
-## 📦 資源準備
-
-- 確保下載並放置 `yolov8n.pt` 模型到指定位置：
-  ```
-  /home/tku-im-sd/backend_project/yolov8n.pt
-  ```
-- 若需替換模型路徑，請在 `fall_detection.py` 修改 `YOLO_MODEL_PATH`
 
 ## 📌 其他說明
 
